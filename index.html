@@ -13,110 +13,163 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+    <div class="noise" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--one"></div>
     <div class="bg-glow bg-glow--two"></div>
 
     <header class="hero">
-      <p class="hero__tag">Personal Portfolio</p>
-      <h1>紀蘊倢</h1>
-      <p class="hero__subtitle">喜歡用語言連結世界，用科學理解世界。</p>
-      <div class="hero__chips" aria-label="關鍵字">
-        <span>Debate</span>
-        <span>Exchange</span>
-        <span>Research</span>
-        <span>Leadership</span>
+      <div class="hero__content">
+        <p class="hero__tag">Jessica's Introduction</p>
+        <h1>
+          哈囉，我是
+          <span class="gradient-text">Jessica</span>
+        </h1>
+        <p class="hero__subtitle">結合人文溝通 × 科學思維，持續打造有溫度、也有邏輯的影響力。</p>
+        <div class="hero__chips" aria-label="關鍵字">
+          <span>Debate</span>
+          <span>Global Mindset</span>
+          <span>Research</span>
+          <span>Creative Leadership</span>
+        </div>
+        <div class="hero__actions">
+          <a href="#journey" class="btn btn--primary">探索我的旅程</a>
+          <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="切換主題">切換光影模式</button>
+        </div>
       </div>
+      <aside class="hero__stats" aria-label="成長數據">
+        <article>
+          <h2>4+</h2>
+          <p>核心成長面向</p>
+        </article>
+        <article>
+          <h2>20+</h2>
+          <p>公開發表與活動參與</p>
+        </article>
+        <article>
+          <h2>∞</h2>
+          <p>持續學習動能</p>
+        </article>
+      </aside>
     </header>
 
-    <main class="tabs-shell">
-      <nav class="tabs" aria-label="自我介紹分頁">
-        <button class="tab-btn is-active" data-tab="profile">關於我</button>
-        <button class="tab-btn" data-tab="english-debate">英文辯論</button>
-        <button class="tab-btn" data-tab="global-exchange">國際交流</button>
-        <button class="tab-btn" data-tab="science-research">科學研究</button>
-        <button class="tab-btn" data-tab="future-goals">未來目標</button>
-      </nav>
+    <main class="layout" id="journey">
+      <section class="panel panel--tabs">
+        <nav class="tabs" aria-label="自我介紹分頁" role="tablist">
+          <button class="tab-btn is-active" data-tab="profile" role="tab" aria-selected="true">關於我</button>
+          <button class="tab-btn" data-tab="english-debate" role="tab" aria-selected="false">英文辯論</button>
+          <button class="tab-btn" data-tab="global-exchange" role="tab" aria-selected="false">國際交流</button>
+          <button class="tab-btn" data-tab="science-research" role="tab" aria-selected="false">科學研究</button>
+          <button class="tab-btn" data-tab="future-goals" role="tab" aria-selected="false">未來目標</button>
+        </nav>
 
-      <section class="tab-panels">
-        <article class="panel is-active" id="profile">
-          <h2>關於我</h2>
-          <p>
-            大家好，我是紀蘊倢。我是一位重視邏輯與同理心並重的學習者，平常喜歡透過閱讀、發表與團隊合作，探索自己與世界的更多可能。
-          </p>
-          <div class="card-grid">
-            <div class="card">
-              <h3>學習風格</h3>
-              <p>擅長主動提問、整理複雜資訊，並將抽象概念轉化為可實踐的方法。</p>
+        <section class="tab-panels">
+          <article class="tab-panel is-active" id="profile">
+            <h3>關於我</h3>
+            <p>
+              我是 Jessica，擅長在快速變化中維持清晰思考，也重視團隊中每個人的觀點。我相信真正的成長，來自主動探索與持續輸出。
+            </p>
+            <div class="card-grid">
+              <div class="card">
+                <h4>思考方式</h4>
+                <p>以問題為起點，透過結構化分析拆解目標，再用可執行方案推進成果。</p>
+              </div>
+              <div class="card">
+                <h4>行動風格</h4>
+                <p>在高標準下保持彈性，能獨立完成任務，也能在團隊中主動串連資源。</p>
+              </div>
             </div>
-            <div class="card">
-              <h3>個人特質</h3>
-              <p>自律、細心且具備良好的溝通能力，喜歡在挑戰中找到成長契機。</p>
+          </article>
+
+          <article class="tab-panel" id="english-debate">
+            <h3>英文辯論</h3>
+            <p>
+              辯論讓我學會在高壓時間內，迅速定義核心問題、組織論點，並以有說服力的語言進行表達與回應。
+            </p>
+            <div class="debate-parallax" aria-label="英辯視差場景">
+              <div class="debate-parallax__item" data-parallax-speed="0.18">
+                <span>Motion</span>
+                <strong>This house would prioritize education equity over ranking competition.</strong>
+              </div>
+              <div class="debate-parallax__item" data-parallax-speed="0.32">
+                <span>POI</span>
+                <strong>How does your policy protect underrepresented students in practice?</strong>
+              </div>
+              <div class="debate-parallax__item" data-parallax-speed="0.46">
+                <span>Impact</span>
+                <strong>Stronger critical thinking → better public dialogue → sustainable social trust.</strong>
+              </div>
             </div>
-          </div>
-        </article>
+            <ul class="timeline">
+              <li>
+                <h4>論證建模</h4>
+                <p>建立 claim → evidence → impact 的敘事邏輯，確保論點完整可驗證。</p>
+              </li>
+              <li>
+                <h4>即席反駁</h4>
+                <p>快速辨識推理漏洞並提出替代觀點，在有限時間中維持精準溝通。</p>
+              </li>
+              <li>
+                <h4>協作節奏</h4>
+                <p>與隊友共同設計戰術，練習角色分工、訊息同步與臨場調整能力。</p>
+              </li>
+            </ul>
+          </article>
 
-        <article class="panel" id="english-debate">
-          <h2>英文辯論</h2>
-          <p>
-            英文辯論讓我學會在有限時間內迅速建構論點，並以清晰結構說服聽眾。這不僅提升我的英文表達能力，也培養了我在壓力下思考的穩定度。
-          </p>
-          <ul class="timeline">
-            <li>
-              <h3>論點建構</h3>
-              <p>從議題背景、利害關係人到證據選擇，建立完整 argument map。</p>
-            </li>
-            <li>
-              <h3>即席反駁</h3>
-              <p>訓練抓住對手論證漏洞，並用精準語言提出有力回應。</p>
-            </li>
-            <li>
-              <h3>團隊合作</h3>
-              <p>與隊友分工準備，培養策略協調與默契。</p>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel" id="global-exchange">
-          <h2>國際交流</h2>
-          <p>
-            我熱衷參與跨文化交流活動，認為真正的全球視野來自「理解差異、尊重差異、並在差異中合作」。
-          </p>
-          <div class="card-grid">
-            <div class="card">
-              <h3>跨文化溝通</h3>
-              <p>在不同文化背景中學會調整語氣、表達方式與協作節奏。</p>
+          <article class="tab-panel" id="global-exchange">
+            <h3>國際交流</h3>
+            <p>
+              我喜歡在跨文化情境中工作，從差異出發、建立理解，最後找到彼此可共同前進的語言。
+            </p>
+            <div class="card-grid">
+              <div class="card">
+                <h4>跨文化協作</h4>
+                <p>能依不同背景調整表達策略，讓團隊在差異中依舊高效合作。</p>
+              </div>
+              <div class="card">
+                <h4>全球議題視角</h4>
+                <p>關注永續、教育與科技倫理，期待把國際視野轉化為在地實踐。</p>
+              </div>
             </div>
-            <div class="card">
-              <h3>國際議題關注</h3>
-              <p>關心永續發展、教育平權與科技倫理，並嘗試提出行動方案。</p>
+          </article>
+
+          <article class="tab-panel" id="science-research">
+            <h3>科學研究</h3>
+            <p>
+              研究訓練我重視證據與可重現性。從假設到驗證，每一步都讓我更理解「嚴謹」如何創造可信成果。
+            </p>
+            <div class="research-steps" aria-label="研究流程">
+              <span>問題定義</span>
+              <span>方法設計</span>
+              <span>資料分析</span>
+              <span>成果表達</span>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="panel" id="science-research">
-          <h2>科學研究</h2>
-          <p>
-            在科學研究中，我喜歡從問題出發，透過實驗設計與數據分析找到可驗證的答案。研究讓我更重視細節、證據與可重現性。
-          </p>
-          <div class="research-steps">
-            <span>問題定義</span>
-            <span>方法設計</span>
-            <span>資料分析</span>
-            <span>成果發表</span>
-          </div>
-        </article>
-
-        <article class="panel" id="future-goals">
-          <h2>未來目標</h2>
-          <p>
-            我希望結合語言能力、國際視野與科學素養，未來投入具有公共影響力的領域，讓知識轉化為對社會有幫助的實際改變。
-          </p>
-          <blockquote>
-            「持續學習、勇於表達、善用科學思維，是我前進的方向。」
-          </blockquote>
-        </article>
+          <article class="tab-panel" id="future-goals">
+            <h3>未來目標</h3>
+            <p>
+              我希望未來在公共影響力領域，結合語言能力、國際視野與科學方法，推動更具包容性與可持續性的改變。
+            </p>
+            <blockquote>
+              "Think clearly, speak bravely, act kindly."
+            </blockquote>
+          </article>
+        </section>
       </section>
+
+      <aside class="panel panel--timeline">
+        <h3>Jessica 成長地圖</h3>
+        <ol>
+          <li><span>起點</span>培養英文表達與批判思考基礎</li>
+          <li><span>進化</span>參與辯論與國際交流，擴張視野</li>
+          <li><span>深化</span>投入研究訓練，強化數據與驗證能力</li>
+          <li><span>未來</span>朝向跨域整合與公共影響力前進</li>
+        </ol>
+      </aside>
     </main>
+
+    <footer class="footer">Designed & coded with care for Jessica © 2026</footer>
 
     <script src="script.js"></script>
   </body>
