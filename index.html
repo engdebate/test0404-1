@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>紀蘊倢｜自我介紹</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow--one"></div>
+    <div class="bg-glow bg-glow--two"></div>
+
+    <header class="hero">
+      <p class="hero__tag">Personal Portfolio</p>
+      <h1>紀蘊倢</h1>
+      <p class="hero__subtitle">喜歡用語言連結世界，用科學理解世界。</p>
+      <div class="hero__chips" aria-label="關鍵字">
+        <span>Debate</span>
+        <span>Exchange</span>
+        <span>Research</span>
+        <span>Leadership</span>
+      </div>
+    </header>
+
+    <main class="tabs-shell">
+      <nav class="tabs" aria-label="自我介紹分頁">
+        <button class="tab-btn is-active" data-tab="profile">關於我</button>
+        <button class="tab-btn" data-tab="english-debate">英文辯論</button>
+        <button class="tab-btn" data-tab="global-exchange">國際交流</button>
+        <button class="tab-btn" data-tab="science-research">科學研究</button>
+        <button class="tab-btn" data-tab="future-goals">未來目標</button>
+      </nav>
+
+      <section class="tab-panels">
+        <article class="panel is-active" id="profile">
+          <h2>關於我</h2>
+          <p>
+            大家好，我是紀蘊倢。我是一位重視邏輯與同理心並重的學習者，平常喜歡透過閱讀、發表與團隊合作，探索自己與世界的更多可能。
+          </p>
+          <div class="card-grid">
+            <div class="card">
+              <h3>學習風格</h3>
+              <p>擅長主動提問、整理複雜資訊，並將抽象概念轉化為可實踐的方法。</p>
+            </div>
+            <div class="card">
+              <h3>個人特質</h3>
+              <p>自律、細心且具備良好的溝通能力，喜歡在挑戰中找到成長契機。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="english-debate">
+          <h2>英文辯論</h2>
+          <p>
+            英文辯論讓我學會在有限時間內迅速建構論點，並以清晰結構說服聽眾。這不僅提升我的英文表達能力，也培養了我在壓力下思考的穩定度。
+          </p>
+          <ul class="timeline">
+            <li>
+              <h3>論點建構</h3>
+              <p>從議題背景、利害關係人到證據選擇，建立完整 argument map。</p>
+            </li>
+            <li>
+              <h3>即席反駁</h3>
+              <p>訓練抓住對手論證漏洞，並用精準語言提出有力回應。</p>
+            </li>
+            <li>
+              <h3>團隊合作</h3>
+              <p>與隊友分工準備，培養策略協調與默契。</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel" id="global-exchange">
+          <h2>國際交流</h2>
+          <p>
+            我熱衷參與跨文化交流活動，認為真正的全球視野來自「理解差異、尊重差異、並在差異中合作」。
+          </p>
+          <div class="card-grid">
+            <div class="card">
+              <h3>跨文化溝通</h3>
+              <p>在不同文化背景中學會調整語氣、表達方式與協作節奏。</p>
+            </div>
+            <div class="card">
+              <h3>國際議題關注</h3>
+              <p>關心永續發展、教育平權與科技倫理，並嘗試提出行動方案。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="science-research">
+          <h2>科學研究</h2>
+          <p>
+            在科學研究中，我喜歡從問題出發，透過實驗設計與數據分析找到可驗證的答案。研究讓我更重視細節、證據與可重現性。
+          </p>
+          <div class="research-steps">
+            <span>問題定義</span>
+            <span>方法設計</span>
+            <span>資料分析</span>
+            <span>成果發表</span>
+          </div>
+        </article>
+
+        <article class="panel" id="future-goals">
+          <h2>未來目標</h2>
+          <p>
+            我希望結合語言能力、國際視野與科學素養，未來投入具有公共影響力的領域，讓知識轉化為對社會有幫助的實際改變。
+          </p>
+          <blockquote>
+            「持續學習、勇於表達、善用科學思維，是我前進的方向。」
+          </blockquote>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
