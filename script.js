@@ -29,36 +29,46 @@ themeToggle.addEventListener('click', toggleTheme);
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 let stars = [];
+let viewportHeight = window.innerHeight;
+
+function createStar() {
+  const depth = Math.random() * 0.9 + 0.1;
+  return {
+    x: Math.random(),
+    y: Math.random(),
+    depth,
+    size: (Math.random() * 1.2 + 0.3) * depth,
+    twinkleSpeed: Math.random() * 1.8 + 0.7,
+    phase: Math.random() * Math.PI * 2,
+  };
+}
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: Math.min(150, Math.floor(window.innerWidth / 8)) }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    z: Math.random() * 1.2 + 0.2,
-    radius: Math.random() * 1.4 + 0.3,
-  }));
+  viewportHeight = window.innerHeight;
+  stars = Array.from({ length: Math.min(240, Math.floor(window.innerWidth / 5)) }, createStar);
 }
 
-function renderStarfield() {
+function drawStarfield(timestamp) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const scrollY = window.scrollY;
+
   for (const star of stars) {
-    star.y += 0.15 * star.z;
-    if (star.y > canvas.height + 5) {
-      star.y = -5;
-      star.x = Math.random() * canvas.width;
-    }
+    const x = star.x * canvas.width;
+    const parallaxY = (star.y * viewportHeight + scrollY * star.depth * 0.35) % (viewportHeight + 30);
+    const y = parallaxY - 15;
+    const alpha = 0.25 + Math.abs(Math.sin(timestamp * 0.001 * star.twinkleSpeed + star.phase)) * 0.7;
 
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius * star.z, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.arc(x, y, star.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(3)})`;
     ctx.fill();
   }
 
-  requestAnimationFrame(renderStarfield);
+  requestAnimationFrame(drawStarfield);
 }
 
 resizeCanvas();
-renderStarfield();
+requestAnimationFrame(drawStarfield);
 window.addEventListener('resize', resizeCanvas);
