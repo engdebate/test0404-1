@@ -1,0 +1,230 @@
+:root {
+  --bg: #05070f;
+  --panel: rgba(255, 255, 255, 0.08);
+  --text: #f5f8ff;
+  --muted: #cdd7f7;
+  --accent: #79b8ff;
+  --accent-2: #c38fff;
+  --border: rgba(255, 255, 255, 0.2);
+  --shadow: 0 18px 45px rgba(8, 12, 30, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 3rem 1.2rem;
+  font-family: "Noto Sans TC", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 12% 10%, #1a2442 0%, var(--bg) 36%),
+    linear-gradient(145deg, #090c18 0%, #03040b 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  filter: blur(72px);
+  z-index: -1;
+}
+
+.bg-glow--one {
+  background: rgba(127, 180, 255, 0.2);
+  top: -12rem;
+  right: -8rem;
+}
+
+.bg-glow--two {
+  background: rgba(195, 143, 255, 0.2);
+  bottom: -10rem;
+  left: -8rem;
+}
+
+.hero,
+.tabs-shell {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.hero__tag {
+  display: inline-block;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 0.35rem 0;
+}
+
+.hero__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.hero__chips {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hero__chips span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tabs-shell {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover,
+.tab-btn:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(121, 184, 255, 0.8);
+}
+
+.tab-btn.is-active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #111;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.tab-panels {
+  padding: 1.5rem 1.25rem 1.8rem;
+}
+
+.panel {
+  display: none;
+  animation: fadeUp 0.35s ease;
+}
+
+.panel.is-active {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+p {
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.card-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.03rem;
+}
+
+.timeline {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.timeline li {
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 0.6rem 0.6rem 0;
+}
+
+.timeline h3 {
+  margin: 0;
+}
+
+.research-steps {
+  margin-top: 1.15rem;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.research-steps span {
+  text-align: center;
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+  font-weight: 500;
+}
+
+blockquote {
+  margin: 1.2rem 0 0;
+  border-left: 4px solid var(--accent-2);
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  color: #e8dcff;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
