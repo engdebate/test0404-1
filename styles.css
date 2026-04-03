@@ -290,6 +290,40 @@ p {
   padding: 0.95rem;
 }
 
+
+.debate-parallax {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  perspective: 1000px;
+}
+
+.debate-parallax__item {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  background: linear-gradient(135deg, rgba(122, 182, 255, 0.18), rgba(216, 157, 255, 0.1));
+  box-shadow: 0 8px 20px rgba(8, 20, 45, 0.22);
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.debate-parallax__item span {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.78rem;
+}
+
+.debate-parallax__item strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .timeline {
   list-style: none;
   margin: 1rem 0 0;

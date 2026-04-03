@@ -2,6 +2,7 @@ const tabButtons = document.querySelectorAll('.tab-btn');
 const panels = document.querySelectorAll('.tab-panel');
 const themeToggle = document.querySelector('#themeToggle');
 const body = document.body;
+const parallaxItems = document.querySelectorAll('[data-parallax-speed]');
 
 function activateTab(tabId) {
   tabButtons.forEach((button) => {
@@ -25,6 +26,16 @@ function toggleTheme() {
 }
 
 themeToggle.addEventListener('click', toggleTheme);
+
+
+function updateDebateParallax() {
+  const scrollY = window.scrollY;
+  parallaxItems.forEach((item) => {
+    const speed = Number(item.dataset.parallaxSpeed || 0);
+    const offset = scrollY * speed;
+    item.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+  });
+}
 
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
@@ -70,5 +81,10 @@ function drawStarfield(timestamp) {
 }
 
 resizeCanvas();
+updateDebateParallax();
 requestAnimationFrame(drawStarfield);
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  updateDebateParallax();
+});
+window.addEventListener('scroll', updateDebateParallax, { passive: true });
